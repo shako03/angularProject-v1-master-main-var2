@@ -1,0 +1,8 @@
+
+
+<div class="crf">
+      <div class="filter" *ngFor="let filter of filterRoomArr">
+            <app-filter-card1 [types]="filter" (filterType)="filterRooms($event)">  </app-filter-card1>
+      </div>
+</div>
+

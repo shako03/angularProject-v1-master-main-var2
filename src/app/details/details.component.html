@@ -1,0 +1,28 @@
+
+
+<div class="room-parent">
+  <div *ngFor="let room of [singleroom]" class="room-card">
+    <div class="hotel-img">
+      <ng-container *ngFor="let image of room.images">
+        <img
+          [src]="image.source"
+          alt="{{ room.name }} image"
+          class="room-img"
+        />
+      </ng-container>
+    </div>
+
+    <div class="room-details">
+      <h3 class="room-name">{{ room.name }}</h3>
+      <p class="room-price">
+        Price per night: <strong>${{ room.pricePerNight }}</strong>
+      </p>
+      <p class="room-guests">
+        Max guests: <strong>{{ room.maximumGuests }}</strong>
+      </p>
+      <p class="room-availability">
+        Available: <strong>{{ room.available }}</strong>
+      </p>
+    </div>
+  </div>
+</div>

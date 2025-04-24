@@ -1,0 +1,23 @@
+<main>
+      <article class="article1">
+            <img src="https://hotelbooking.stepprojects.ge/images/slides/slide-bg.jpg" alt="" />
+      </article>
+      <div class="second-plot">
+            <div class="left-line"></div>
+            <div class="plot-text">
+                  <h3 class="Fav-hotel">Favourite Hotels</h3>
+            </div>
+            <div class="right-line"></div>
+      </div>
+
+
+      <div class="hotel-cards-container">
+            <div class="missedStyle" *ngFor="let hotel of hotelsArr">
+                <app-hotel-card [Hotels]="hotel"></app-hotel-card>
+            </div>
+        </div>
+</main>
+
+<app-error-dialog>
+      
+</app-error-dialog>

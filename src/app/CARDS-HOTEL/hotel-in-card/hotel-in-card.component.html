@@ -1,0 +1,14 @@
+
+<main>
+      <div class="Hotels">
+            <div class="hotel-img">
+                  <img [src]="Hotels.featuredImage" alt="{{ Hotels.name }} image" />
+            </div>
+            <div class="hotel-text">
+                  <p>{{Hotels.name}}</p>
+            </div>
+
+            <button class="see-rooms"  routerLink="/Room/{{Hotels.id}}">See Rooms</button>
+            
+      </div>
+</main>

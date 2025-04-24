@@ -1,0 +1,15 @@
+<div  class="APPTE">
+      <div class="btn-s-parent-here">
+            <app-room-filter class="aside" (filterRoomL)="filterRoomList($event)"></app-room-filter>
+      </div>
+      
+      <div class="randdiv">
+            <article class="article-241">
+                  <main>
+                        <div class="room-parent">
+                              <app-rooms-card *ngFor="let Rooms of Room" [Room]="Rooms"></app-rooms-card>
+                        </div>
+                  </main>
+            </article>
+      </div>
+</div>

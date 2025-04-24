@@ -1,0 +1,73 @@
+.APPTE {
+      width: 100%;
+      height: auto;
+      display: flex;
+      .btn-s-parent-here{
+            width: 30%;
+            display: flex;
+            height: 300px;
+            justify-content: center;
+            align-items: center;
+            .aside{
+                  width: 70%;
+            }
+            
+      }
+
+
+      .randdiv {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+
+            .article-241 {
+
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: auto;
+                  width: 80%;
+
+                  main {
+                        padding: 2rem;
+                        background-color: #f2f2f2;
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        .room-parent {
+                              display: grid;
+                              grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+                              gap: 2rem;
+                              width: auto;
+
+
+
+                        }
+
+
+                  }
+            }
+      }
+
+      .app-rooms-card {
+            width: auto;
+      }
+
+      @media screen and (max-width: 600px) {
+            .main {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+
+            }
+            .APPTE{
+                  display: flex;
+                  flex-direction: column;
+            }
+            
+
+      }
+}

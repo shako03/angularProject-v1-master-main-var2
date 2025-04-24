@@ -1,0 +1,17 @@
+<div *ngFor="let city of citiesArr" class="hotelsCity">
+    <app-hotels-city [City]="city">
+    </app-hotels-city>
+  </div>
+
+<div class="hotel-cards-container">
+      <div class="ddiivv" *ngFor="let hotel of hotelsArr">
+          <app-hotel-in-card [Hotels]="hotel"></app-hotel-in-card>
+      </div>
+
+  </div>
+ 
+
+  
+
+
+  <app-iframe> </app-iframe>

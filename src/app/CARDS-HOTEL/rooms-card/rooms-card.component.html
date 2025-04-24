@@ -1,0 +1,15 @@
+<div class="hotel-img">
+      <ng-container *ngFor="let image of Room.images">
+        <img [src]="image.source" alt="{{ Room.name }} image" class="room-img" />
+      </ng-container>
+    </div>
+    
+<div class="room-details">
+      <h3 class="room-name">{{ Room.name }}</h3>
+      <p class="room-price">Price per night: <strong>${{ Room.pricePerNight }}</strong></p>
+      <p class="room-guests">Max guests: <strong>{{ Room.maximumGuests }}</strong></p>
+      <p style="color: blue;" class="room-guests">Available : {{Room.available}}</p>
+      <button  routerLink="/details/{{Room.id}}" [routerLinkActive]="activeClass" class="details-button">see details</button>
+</div>
+
+<!-- <button class="see-rooms"  routerLink="/Room/{{Hotels.id}}">See Rooms</button> -->
