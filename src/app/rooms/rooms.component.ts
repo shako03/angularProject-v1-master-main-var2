@@ -4,13 +4,13 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {  Room } from '../models/rooms';
-import { RoomFilterComponent } from "../room-filter/room-filter.component";
+
 
 
 @Component({
   selector: 'app-rooms',
   standalone: true,
-  imports: [RouterModule, FormsModule, CommonModule, RoomFilterComponent],
+  imports: [RouterModule, FormsModule, CommonModule,],
   templateUrl: './rooms.component.html',
   styleUrl: './rooms.component.scss'
 })
@@ -23,9 +23,8 @@ constructor( private rout : ActivatedRoute , private  APPI : HotelsService ){
 @Input() hotels!:Room
 
 singleHotel : any = []
-
-
-
+@Input() Room!: Room;
+ activeClass = "active"
 filterRoomList(type: any) {
   console.log("from parent", type); 
 }

@@ -1,8 +1,5 @@
 
 
-
-<!-- <app-room-filter (filterRoomL)="filterRoomList($event)"></app-room-filter> -->
-
 <main>
   <div class="room-parent">
     <div *ngFor="let room of singleHotel?.rooms" class="room-card">
@@ -14,10 +11,11 @@
         <h3 class="room-name">{{ room.name }}</h3>
         <p class="room-price">Price per night: <strong>${{ room.pricePerNight }}</strong></p>
         <p class="room-guests">Max guests: <strong>{{ room.maximumGuests }}</strong></p>
+        <button  routerLink="/details/{{room.id}}" [routerLinkActive]="activeClass"  class="details-button">see details</button>
       </div>
     </div>
   </div>
-</main>
+</main> 
 
 
 
@@ -32,13 +30,3 @@
 
 
 
-
-
-<!-- <div *ngFor="let room of singleHotel?.rooms">
-
-  <p>Price per night: {{ room.pricePerNight }}</p>
-  <p>Max guests: {{ room.address }}</p>
-  <h3>{{room.name}}</h3>
-  
-  <img style="width: 300px; height: ;" [src]="room.featuredImage" alt="" />
-</div> -->
