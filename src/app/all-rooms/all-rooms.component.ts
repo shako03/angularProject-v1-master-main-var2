@@ -34,5 +34,6 @@ export class AllRoomsComponent {
     this.renderRoom(resp)
 
    })
+   
   }
 }

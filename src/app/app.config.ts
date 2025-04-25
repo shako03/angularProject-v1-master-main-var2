@@ -12,7 +12,7 @@ export const appConfig: ApplicationConfig = {
     ),
     {
       provide: HTTP_INTERCEPTORS,
-      useClass : HttpInterceptorService,  //გამომჭერი - იჭერს ერორებს
+      useClass : HttpInterceptorService,  
       multi : true
     }
 
