@@ -4,10 +4,11 @@ import { HotelsService } from '../services/hotels.service';
 import { CommonModule } from '@angular/common';
 import { RoomsCardComponent } from "../CARDS-HOTEL/rooms-card/rooms-card.component";
 import { RoomFilterComponent } from "../room-filter/room-filter.component";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-all-rooms',
-  imports: [CommonModule, RoomsCardComponent, RoomFilterComponent],
+  imports: [CommonModule, RoomsCardComponent, RoomFilterComponent, FormsModule],
   templateUrl: './all-rooms.component.html',
   styleUrl: './all-rooms.component.scss'
 })
@@ -26,14 +27,39 @@ export class AllRoomsComponent {
   renderRoom(arr: Room[]) {
     this.Room = arr;
   }
-   filterRoomList(type : any){
-   let  postObj ={
-     roomTypeId: type,
-   }
-   this.httpRoom.getRoomFilteredByTypes(postObj).subscribe((resp:any) => {
-    this.renderRoom(resp)
+  filterRoomList(type: any) {
+    let postObj = {
+      roomTypeId: type,
+    }
+    this.httpRoom.getRoomFilteredByTypes(postObj).subscribe((resp: any) => {
+      this.renderRoom(resp)
 
-   })
-   
+    })
+
   }
+  priceFrom = 0
+  priceTo = 0
+  maxGuests = 0
+  checkInDate = new Date
+  checkInOut = new Date
+
+  filter() {
+    this.httpRoom.getRoomFilteredByTypes({
+      priceFrom: this.priceFrom,
+      priceTo: this.priceTo,
+      maxGuests: this.maxGuests,
+      checkInDate: this.checkInDate,
+      checkOutDate: this.checkInOut
+    }).subscribe((resp: any) => {
+      this.renderRoom(resp)
+      console.log(resp)
+    })
+  }
+
+
+  reset() {
+
+  }
+
+
 }
