@@ -58,6 +58,15 @@ export class AllRoomsComponent {
 
 
   reset() {
+    this.priceFrom = 0
+    this.priceTo = 0
+    this.maxGuests = 0
+    this.checkInDate = new Date
+    this.checkInOut = new Date
+    this.httpRoom.getAllRooms().subscribe((resp: any) => {
+      this.renderRoom(resp)
+      console.log(resp)
+    })
 
   }
 

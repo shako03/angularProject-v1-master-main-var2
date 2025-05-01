@@ -1,18 +1,23 @@
-<div  class="APPTE">
+<div class="APPTE">
       <div class="btn-s-parent-here">
             <div class="btn-s-parent-here-child">
                   <app-room-filter class="aside" (filterRoomL)="filterRoomList($event)"></app-room-filter>
             </div>
 
       </div>
-      <input type="number" placeholder="priceFrom" [(ngModel)]="priceFrom">
-      <input type="number" placeholder="priceTo" [(ngModel)]="priceTo">
-      <input type="date" [(ngModel)]="checkInDate">  
-      <input type="date" [(ngModel)]="checkInOut">
-      <input type="number" placeholder="maxGuests" [(ngModel)]="maxGuests">
-      <button (click)="filter()">Filter</button>
-      <button (click)="reset()">Reset Filter</button>
-      
+      <div class="filter-container">
+            <input type="number" placeholder="priceFrom" [(ngModel)]="priceFrom">
+            <input type="number" placeholder="priceTo" [(ngModel)]="priceTo">
+            <input type="date" [(ngModel)]="checkInDate">  
+            <input type="date" [(ngModel)]="checkInOut">
+            <input type="number" placeholder="maxGuests" [(ngModel)]="maxGuests">
+            <div class="button-group">
+              <button (click)="filter()">Filter</button>
+              <button (click)="reset()">Reset Filter</button>
+            </div>
+          </div>
+          
+
       <div class="randdiv">
             <article class="article-241">
                   <main>
@@ -23,4 +28,3 @@
             </article>
       </div>
 </div>
-
