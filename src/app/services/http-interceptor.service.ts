@@ -1,5 +1,5 @@
 import { HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
-import {  Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { catchError, Observable, pipe } from 'rxjs';
 import { ErrorHandlerService } from './error-handler.service';
 
@@ -8,9 +8,9 @@ import { ErrorHandlerService } from './error-handler.service';
 })
 export class HttpInterceptorService implements HttpInterceptor {
 
-  constructor(private errorhandler : ErrorHandlerService) { }
+  constructor(private errorhandler: ErrorHandlerService) { }
 
-  
+
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
@@ -20,18 +20,18 @@ export class HttpInterceptorService implements HttpInterceptor {
         }
         else if (error.status == 0) {
           console.log("server is not responding")
-          throw error
         }
-        else if(error.status == 500){
+        else if (error.status == 500) {
 
           console.log("internal server error")
         }
-        else if (error.status == 404){
+        else if (error.status == 404) {
           console.log("Not Found")
         }
-        else{
+        else {
           console.log("unknown error")
         }
+
         this.errorhandler.showDialog(error.statusText)
         throw error
       })

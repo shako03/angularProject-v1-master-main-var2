@@ -15,7 +15,7 @@ export class ErrorDialogComponent {
     this.errorHandler.dialogState.subscribe(
       state => {
       this.showDialog = state.show
-      this.errorMassage = state.errorMassage
+      this.errorMassage = state.message
       }
     )
   }
