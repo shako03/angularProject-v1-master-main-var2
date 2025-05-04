@@ -37,6 +37,8 @@ export class AllRoomsComponent {
     })
 
   }
+
+  
   priceFrom = 0
   priceTo = 0
   maxGuests = 0

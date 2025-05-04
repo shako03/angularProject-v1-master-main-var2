@@ -32,9 +32,16 @@ export class HotelsService {
     return this.APPI.getAll('https://hotelbooking.stepprojects.ge/api/Hotels/GetCities')
   }
 
+  getAllBookedRooms(){
+    return this.APPI.getAll('https://hotelbooking.stepprojects.ge/api/Booking')
+  }
 
   getRoomFilteredByTypes(obj : any) {
     return this.APPI.getRoomFilteredByType('https://hotelbooking.stepprojects.ge/api/Rooms/GetFiltered', obj)
+  }
+
+  PostBooking(obj : any) {
+    return this.APPI.UsePostForBooking('https://hotelbooking.stepprojects.ge/api/Booking', obj)
   }
   
 }

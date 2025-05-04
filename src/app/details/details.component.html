@@ -27,44 +27,56 @@
   </div>
 </div>
 
+<div class="filter-container">
+
+  <p>{{totalPrice}}</p>
+  <input type="date" [(ngModel)]="checkInDate">  
+  <input type="date" [(ngModel)]="checkOutDate">
+  <p>{{roomID}}</p>
+  <div class="button-group">
+    <button (click)="addBookedRoom()">Filter</button>
+
+  </div>
+</div>
 
 
 
 
-<!-- <div class="booking-form">
+
+<div class="booking-form">
   <h2>Book this room</h2>
 
-  <form (ngSubmit)="submitBooking()" #bookingForm="ngForm">
+  <form (ngSubmit)="addBookedRoom()" #bookingForm="ngForm">
         <label>
               Your Name:
-              <input type="text" [(ngModel)]="booking.customerName" name="customerName" required />
+              <input type="text" [(ngModel)]="customerName" name="customerName" required />
         </label>
 
         <label>
               Your ID:
-              <input type="text" [(ngModel)]="booking.customerId" name="customerId" required />
+              <input type="text" [(ngModel)]="customerId" name="customerId" required />
         </label>
 
         <label>
               Phone Number:
-              <input type="tel" [(ngModel)]="booking.customerPhone" name="customerPhone" required />
+              <input type="tel" [(ngModel)]="customerPhone" name="customerPhone" required />
         </label>
 
         <label>
               Check-In Date:
-              <input type="date" [(ngModel)]="booking.checkInDate" name="checkInDate" required />
+              <input type="date" [(ngModel)]="checkInDate" name="checkInDate" required />
         </label>
 
         <label>
               Check-Out Date:
-              <input type="date" [(ngModel)]="booking.checkOutDate" name="checkOutDate" required />
+              <input type="date" [(ngModel)]="checkOutDate" name="checkOutDate" required />
         </label>
 
         <label>
               Total Price:
-              <input type="number" [(ngModel)]="booking.totalPrice" name="totalPrice" readonly />
+              <input type="number" [(ngModel)]="totalPrice" name="totalPrice" readonly />
         </label>
 
         <button type="submit" [disabled]="!bookingForm.form.valid">Confirm Booking</button>
   </form>
-</div> -->
+</div>

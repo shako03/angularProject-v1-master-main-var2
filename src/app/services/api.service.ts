@@ -26,5 +26,8 @@ export class ApiService {
   getRoomFilteredByType(url : string, obj : any){
     return this.http.post(url, obj)
   }
-  
+
+  UsePostForBooking(url : string, obj : any){
+    return this.http.post(url, obj)
+  }
 }

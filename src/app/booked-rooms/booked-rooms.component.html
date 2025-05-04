@@ -1,15 +1,73 @@
-<div *ngFor="let room of singleHotel?.rooms" class="room-card">
-      <div class="hotel-img">
-            <img [src]="room.images?.[0].source" alt="{{ room.name }} image" class="room-img" />
-      </div>
-      
 
+
+<div class="booked-room-card"
+     *ngFor="let room of bookedRoomsArr;">
+  <div class="room-details">
+    <p>Price: {{ room.totalPrice }} $ / night</p>
+     <p *ngIf="room.isConfirmed">Available</p>
+     <h2>{{ room.checkInDate }}</h2>
+     
+    <p *ngIf="!room.checkOutDate">Not available</p>
+    <h3>{{room.checkInDate}}</h3>
+
+
+    
+    <!--
+    <div class="gallery" *ngIf="room.images?.length">
+      <img *ngFor="let img of room.images"
+           [src]="img.source"
+           [alt]="room.name"
+           class="gallery-img" />
+    </div> -->
+  </div>
 </div>
 
 
 
 
-<div class="room-details">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div *ngFor="let room of singleHotel?.rooms" class="room-card">
+      <div class="hotel-img">
+            <img [src]="room.images?.[0].source" alt="{{ room.name }} image" class="room-img" />
+      </div>     
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="room-details">
       <h1>{{ room.name }}</h1>
       <p>{{ room.pricePerNight }} $ / night</p>
       <p>Max guests: {{ room.maximumGuests }}</p>
@@ -19,7 +77,7 @@
       <div class="gallery" *ngIf="room.images?.length">
             <img *ngFor="let img of room.images" [src]="img.source" [alt]="room.name" class="gallery-img" />
       </div>
-</div>
+</div> -->
 
 
 

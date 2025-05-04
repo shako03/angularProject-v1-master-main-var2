@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { Hotel } from '../models/hotels';
-import { Room } from '../models/rooms';
-import { ActivatedRoute, RouterModule } from '@angular/router';
-import { ApiService } from '../services/api.service';
+import { RouterModule } from '@angular/router';
+
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HotelsService } from '../services/hotels.service';
+import { BookedRoom } from '../models/bookedroomsModel';
 
 @Component({
   selector: 'app-booked-rooms',
@@ -13,28 +13,55 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./booked-rooms.component.scss']
 })
 export class BookedRoomsComponent {
-  
-  room: Room = new Room();
-  imageObject: Array<{ image: string; thumbImage: string }> = [];
-singleHotel: any;
+  constructor(private httpBookedRoom: HotelsService) { }
 
-
-
-
-   booking = {
-    roomID: 0,
-    checkInDate: '',
-    checkOutDate: '',
-    totalPrice: 0,
-    isConfirmed: true,
-    customerName: '',
-    customerId: '',
-    customerPhone: ''
-  };
-  submitBooking() {
-    this.booking.roomID = this.room.id ?? 0;
-
-    console.log('Booking submitted:', this.booking);
-
+  bookedRoomsArr:BookedRoom[] = [];
+  ngOnInit(){
+    this.httpBookedRoom.getAllBookedRooms().subscribe((resp: any) => {
+      console.log(resp)
+      this.renderBookedRooms(resp);
+    });
   }
+
+  renderBookedRooms(arr: any[]) {
+    this.bookedRoomsArr = arr;
+  }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+  // room: Room = new Room();
+  // imageObject: Array<{ image: string; thumbImage: string }> = [];
+  // singleHotel: any;
+
+
+
+
+  // booking = {
+  //   roomID: 0,
+  //   checkInDate: '',
+  //   checkOutDate: '',
+  //   totalPrice: 0,
+  //   isConfirmed: true,
+  //   customerName: '',
+  //   customerId: '',
+  //   customerPhone: ''
+  // };
+  // submitBooking() {
+  //   this.booking.roomID = this.room.id ?? 0;
+
+  //   console.log('Booking submitted:', this.booking);
+
+  // }
