@@ -27,7 +27,8 @@ export class ApiService {
     return this.http.post(url, obj)
   }
 
-  UsePostForBooking(url : string, obj : any){
-    return this.http.post(url, obj)
+  UsePostForBooking(url: string, obj: any) {
+    return this.http.post(url, obj, { responseType: 'text' });
   }
+  
 }

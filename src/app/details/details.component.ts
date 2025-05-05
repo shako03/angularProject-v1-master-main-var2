@@ -71,7 +71,7 @@ export class DetailsComponent {
       }
     });
   }
-  succes(){
+  succes() {
     alert('Booking successful');
   }
 }
