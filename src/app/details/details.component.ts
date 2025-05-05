@@ -8,60 +8,72 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [RouterModule, FormsModule, CommonModule,],
+  imports: [RouterModule, FormsModule, CommonModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
 export class DetailsComponent {
-  constructor(private rout: ActivatedRoute, private APPI: HotelsService, private httpBook: HotelsService) {
-    this.rout.params.subscribe(data => this.getSingleroom(data['id']))
+  constructor(
+    private route: ActivatedRoute,
+    private hotelService: HotelsService
+  ) {
+    this.route.params.subscribe(params => this.getSingleRoom(params['id']));
   }
-  @Input() room!: Room
 
-  singleroom: any = []
+  @Input() room!: Room;
 
+  singleroom: any = {};
 
-  getSingleroom(id: number) {
-    this.APPI.getRoomById(id).subscribe((resp: any) => {
-      this.singleroom = resp
-      console.log(resp)
-    })
+  roomID: number | null = null;
+  checkInDate: string = '';
+  checkOutDate: string = '';
+  totalPrice: number | null = null;
+  isConfirmed: boolean = true;
+  customerName: string = '';
+  customerId: string = '';
+  customerPhone: string = '';
+
+  Room: Room[] = [];
+
+  getSingleRoom(id: number) {
+    this.roomID = id;
+    this.hotelService.getRoomById(id).subscribe((resp: any) => {
+      this.singleroom = resp;
+      console.log('Room Details:', resp);
+    });
   }
-  Room: Room[] = []
+
   renderRoom(arr: Room[]) {
     this.Room = arr;
   }
 
-  id= null
-  roomID= null
-  checkInDate = new Date
-  checkOutDate = new Date
-  totalPrice = null
-  isConfirmed = null
-  customerName = null
-  customerId = null
-  customerPhone = null
-
   addBookedRoom() {
-    this.httpBook.PostBooking({
-      roomID: this.id,
-      checkInDate: this.checkInDate,
-      checkOutDate: this.checkOutDate,
-      totalPrice: this.totalPrice,
-      isConfirmed: true,
+
+
+    const bookingPayload = {
+      roomID: this.roomID,
+      checkInDate: new Date(this.checkInDate).toISOString(),
+      checkOutDate: new Date(this.checkOutDate).toISOString(),
+      isConfirmed: this.isConfirmed,
       customerName: this.customerName,
       customerId: this.customerId,
       customerPhone: this.customerPhone
-    }).subscribe((resp: any) => {
-      console.log(resp)
-    })
+    };
+
+    console.log('Booking Payload:', bookingPayload);
+
+    this.hotelService.PostBooking(bookingPayload).subscribe({
+      next: (resp: any) => {
+        console.log('Booking successful:', resp);
+      },
+      error: (err) => {
+        console.error('Booking failed:', err);
+      }
+    });
   }
-
-
-
+  succes(){
+    alert('Booking successful');
+  }
 }
-
-
-
 
 
