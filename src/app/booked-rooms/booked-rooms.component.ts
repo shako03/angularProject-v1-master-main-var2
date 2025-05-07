@@ -5,26 +5,45 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HotelsService } from '../services/hotels.service';
 import { BookedRoom } from '../models/bookedroomsModel';
-
+import { RoomsCardComponent } from "../CARDS-HOTEL/rooms-card/rooms-card.component";
+import { Room } from '../models/rooms';
+import { AllRoomsComponent } from '../all-rooms/all-rooms.component';
 @Component({
   selector: 'app-booked-rooms',
   templateUrl: './booked-rooms.component.html',
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, RoomsCardComponent,AllRoomsComponent],
   styleUrls: ['./booked-rooms.component.scss']
 })
 export class BookedRoomsComponent {
-  constructor(private httpBookedRoom: HotelsService) { }
+  constructor(private httpBookedRoom: HotelsService,) { }
 
-  bookedRoomsArr:BookedRoom[] = [];
-  ngOnInit(){
+  @Input() Rooms: Room[] = []; 
+
+  bookedRoomsArr: BookedRoom[] = [];
+  ngOnInit() {
     this.httpBookedRoom.getAllBookedRooms().subscribe((resp: any) => {
-      console.log(resp)
-      this.renderBookedRooms(resp);
+    
+      
+      this.renderBookedRooms(resp.filter((room: BookedRoom) => room.totalPrice > 0 && room.isConfirmed ));
+      console.log(this.Rooms);
     });
   }
 
+  Room : Room[] = [];
   renderBookedRooms(arr: any[]) {
     this.bookedRoomsArr = arr;
+
+    
+  }
+
+
+
+  deleteProduct(id: number) {
+    this.httpBookedRoom.deleteById(id).subscribe(() => {
+        alert('Room Deleted');
+        this.bookedRoomsArr = this.bookedRoomsArr.filter(room => room.id !== id);
+      }
+    );
   }
 
 
@@ -42,26 +61,3 @@ export class BookedRoomsComponent {
 
 
 
-  // room: Room = new Room();
-  // imageObject: Array<{ image: string; thumbImage: string }> = [];
-  // singleHotel: any;
-
-
-
-
-  // booking = {
-  //   roomID: 0,
-  //   checkInDate: '',
-  //   checkOutDate: '',
-  //   totalPrice: 0,
-  //   isConfirmed: true,
-  //   customerName: '',
-  //   customerId: '',
-  //   customerPhone: ''
-  // };
-  // submitBooking() {
-  //   this.booking.roomID = this.room.id ?? 0;
-
-  //   console.log('Booking submitted:', this.booking);
-
-  // }

@@ -1,31 +1,38 @@
 
 
-<div class="booked-room-card"
-     *ngFor="let room of bookedRoomsArr;">
-  <div class="room-details">
-    <p>Price: {{ room.totalPrice }} $ / night</p>
-     <p *ngIf="room.isConfirmed">Available</p>
-     <h2>{{ room.checkInDate }}</h2>
-     
-    <p *ngIf="!room.checkOutDate">Not available</p>
-    <h3>{{room.checkInDate}}</h3>
 
-
+<div class="booked-room-card" *ngFor="let room of bookedRoomsArr">
+      <div class="room-details">
+        <p>Price: {{ room.totalPrice }} $ / night</p>
+        <p *ngIf="room.isConfirmed">Available</p>
+        <h2>{{ room.checkInDate }}</h2>
+        <h2>{{ room.checkOutDate }}</h2>
+        <p *ngIf="!room.isConfirmed">Not available</p>
+        
+        <button (click)="deleteProduct(room.id)">Delete</button>
+      </div>
+    </div>
     
-    <!--
-    <div class="gallery" *ngIf="room.images?.length">
-      <img *ngFor="let img of room.images"
-           [src]="img.source"
-           [alt]="room.name"
-           class="gallery-img" />
-    </div> -->
-  </div>
+    <div class="randdiv">
+      <article class="article-241">
+            <main>
+                  <div class="room-parent">
+                        <app-rooms-card *ngFor="let Rooms of Room" [Room]="Rooms"></app-rooms-card>
+                  </div>
+            </main>
+      </article>
 </div>
+    
 
 
 
-
-
+<!--
+<div class="gallery" *ngIf="room.images?.length">
+  <img *ngFor="let img of room.images"
+       [src]="img.source"
+       [alt]="room.name"
+       class="gallery-img" />
+</div> -->
 
 
 

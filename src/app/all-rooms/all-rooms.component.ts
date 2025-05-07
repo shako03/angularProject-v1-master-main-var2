@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, output } from '@angular/core';
 import { Room } from '../models/rooms';
 import { HotelsService } from '../services/hotels.service';
 import { CommonModule } from '@angular/common';
@@ -14,19 +14,27 @@ import { FormsModule } from '@angular/forms';
 })
 export class AllRoomsComponent {
 
-  Room: Room[] = []
+@Output() Rooms: Room[] = [{
+  name :''
+}];
 
-  constructor(private httpRoom: HotelsService) { }
+
+  // Rooms: Room[] = []
+
+  constructor(private httpRoom: HotelsService, ) { }
+
 
   ngOnInit() {
     this.httpRoom.getAllRooms().subscribe((resp: any) => {
       this.renderRoom(resp)
       console.log(resp)
+      
     })
   }
   renderRoom(arr: Room[]) {
-    this.Room = arr;
+    this.Rooms = arr;
   }
+
   filterRoomList(type: any) {
     let postObj = {
       roomTypeId: type,
@@ -73,4 +81,9 @@ export class AllRoomsComponent {
   }
 
 
+
 }
+
+
+
+  

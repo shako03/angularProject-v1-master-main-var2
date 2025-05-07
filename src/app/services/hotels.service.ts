@@ -44,4 +44,10 @@ export class HotelsService {
     return this.APPI.UsePostForBooking('https://hotelbooking.stepprojects.ge/api/Booking', obj)
   }
   
+
+deleteById(id: number) {
+  return this.APPI.DeleteByID('https://hotelbooking.stepprojects.ge/api/Booking', id);
+}
+
+
 }

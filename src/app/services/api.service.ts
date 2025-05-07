@@ -30,5 +30,8 @@ export class ApiService {
   UsePostForBooking(url: string, obj: any) {
     return this.http.post(url, obj, { responseType: 'text' });
   }
+  DeleteByID(url:string, id : number){
+    return this.http.delete(`${url}/${id}`, { responseType: 'text' });
+  }
   
 }
