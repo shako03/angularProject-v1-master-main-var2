@@ -47,8 +47,6 @@
           <input type="date" [(ngModel)]="checkOutDate" name="checkOutDate" required />
         </label>
 
-
-        <p>totalPrice : {{ totalPrice}}</p>
         <button (click)="succes()" type="submit" [disabled]="!bookingForm.form.valid">Confirm Booking</button>
 
       </form>
