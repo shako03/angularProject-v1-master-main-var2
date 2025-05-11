@@ -11,7 +11,7 @@ import { AllRoomsComponent } from '../all-rooms/all-rooms.component';
 @Component({
   selector: 'app-booked-rooms',
   templateUrl: './booked-rooms.component.html',
-  imports: [CommonModule, RouterModule, FormsModule, RoomsCardComponent,AllRoomsComponent],
+  imports: [CommonModule, RouterModule, FormsModule, RoomsCardComponent,],
   styleUrls: ['./booked-rooms.component.scss']
 })
 export class BookedRoomsComponent {
@@ -26,6 +26,7 @@ export class BookedRoomsComponent {
       
       this.renderBookedRooms(resp.filter((room: BookedRoom) => room.totalPrice > 0 && room.isConfirmed ));
       console.log(this.Rooms);
+
     });
   }
 
