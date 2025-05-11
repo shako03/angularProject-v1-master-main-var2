@@ -11,10 +11,10 @@ export class ErrorHandlerService {
 
 
   dialogSubject = new Subject<any>()
-  dialogState = this.dialogSubject.asObservable()  //გავხადოთ observable რადგან უნდა შევინახოით ინფორმაცია რომელსაც დავაკვირდებით რა მდგომარეობაშია
+  dialogState = this.dialogSubject.asObservable()  
 
   showDialog(message = "error") {
-    this.dialogSubject.next({ show: true, message }) //ყოველთვის როცა ახალ მდგომარეობას ვაწვდით ეს გვეტყვია ამის შემდეგ რა მდგომარეობაში იქნება
+    this.dialogSubject.next({ show: true, message }) 
   }
 
   hideDialog() {

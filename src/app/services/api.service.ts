@@ -6,32 +6,35 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getAll(url : string){
+  getAll(url: string) {
     return this.http.get(url)
   }
 
-  getById(url : string, id : number){
+  getById(url: string, id: number) {
     return this.http.get(`${url}/${id}`)
   }
 
-  getAllRooms(url : string,){
+  getAllRooms(url: string,) {
     return this.http.get(url)
   }
-  getRoomType(url : string, ){
+  getRoomType(url: string,) {
     return this.http.get(url)
   }
 
-  getRoomFilteredByType(url : string, obj : any){
+  getRoomFilteredByType(url: string, obj: any) {
     return this.http.post(url, obj)
   }
 
   UsePostForBooking(url: string, obj: any) {
     return this.http.post(url, obj, { responseType: 'text' });
   }
-  DeleteByID(url:string, id : number){
+  DeleteByID(url: string, id: number) {
     return this.http.delete(`${url}/${id}`, { responseType: 'text' });
+  }
+  PostRegistration(url: string, obj: any) {
+    return this.http.post(url , obj)
   }
   
 }
