@@ -10,51 +10,33 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
+
   constructor(private http: HotelsService) { }
 
   email: string = "";
   password: string = "";
 
-
   register(form: NgForm) {
     if (form.valid) {
+
       let user = {
         email: this.email,
         password: this.password
       }
 
-      this.http.postUser(user).subscribe((resp:any) => {
+      this.http.PostUser(user).subscribe((resp: any) => {
         console.log(resp)
-      })
+      });
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // reg() {
-  //   this.http.postUser({
-  //   email: "eve.holt@reqres.in",
-  //   password: "pistol"
-
-  //   }).subscribe((resp: any) => {
-  //     console.log(resp)
-  //   })
-  // }
-
-
-
 }
+
+  
+
+
+
+
+
 
 
 

@@ -3,13 +3,11 @@
 
 
 
-<form #userForm="ngForm" (ngSubmit)="register(userForm)">
-
-      <input type="email" [(ngModel)]="email" name="email" placeholder="email" >
-      <input type="password" [(ngModel)]="password" name="password" placeholder="password" >
-      <button type="submit">Register</button>
+<form  #userForm="ngForm" (ngSubmit)="register(userForm)">
+      <input name="email" type="email" [(ngModel)]="email">
+      <input name="password" type="password" [(ngModel)]="password">
+      <button type="submit">login</button>
 </form>
-
 
 
 
