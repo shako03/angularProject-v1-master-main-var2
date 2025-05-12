@@ -34,7 +34,7 @@ export class ApiService {
     return this.http.delete(`${url}/${id}`, { responseType: 'text' });
   }
   PostRegistration(url: string, obj: any) {
-    return this.http.post(url , obj)
+    return this.http.post(url, obj)
   }
   
 }

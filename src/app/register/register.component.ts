@@ -1,30 +1,61 @@
 import { Component } from '@angular/core';
-import { PostedUser } from '../models/PostUser';
-import { ApiService } from '../services/api.service';
+import { HotelsService } from '../services/hotels.service';
+import { FormsModule, NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-register',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
-  constructor(private http: ApiService) { }
-  reg() {
+  constructor(private http: HotelsService) { }
 
-    this.http.PostRegistration({
+  email: string = "";
+  password: string = "";
 
-      phoneNumber: "574 12 90 35",
-      password: "123456",
-      email: "jndfbn@gmail.com",
-      firstName: "shako",  
-      lastName: "Giorgashvili",
-      role: "user"
-      }).subscribe((res:any) => 
-      console.log(res)
-    )
 
+  register(form: NgForm) {
+    if (form.valid) {
+      let user = {
+        email: this.email,
+        password: this.password
+      }
+
+      this.http.postUser(user).subscribe((resp:any) => {
+        console.log(resp)
+      })
+    }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // reg() {
+  //   this.http.postUser({
+  //   email: "eve.holt@reqres.in",
+  //   password: "pistol"
+
+  //   }).subscribe((resp: any) => {
+  //     console.log(resp)
+  //   })
+  // }
+
+
+
 }
+
+
 
 
