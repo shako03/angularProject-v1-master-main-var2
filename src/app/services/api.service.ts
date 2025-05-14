@@ -45,4 +45,6 @@ export class ApiService {
   PostRegistration(url: string, obj: any) {
     return this.http.post(url, obj, { headers: this.getHeaders() });
   }
+
+
 }

@@ -1,12 +1,13 @@
-<p>register works!</p>
 
 
 
 
-<form  #userForm="ngForm" (ngSubmit)="register(userForm)">
-      <input name="email" type="email" [(ngModel)]="email">
-      <input name="password" type="password" [(ngModel)]="password">
-      <button type="submit">login</button>
+
+<form #userForm="ngForm" (ngSubmit)="register(userForm)" class="register-form">
+  <h2 class="form-title">Create Your Account</h2>
+  <input name="email" type="email" [(ngModel)]="email" placeholder="Email" class="register-input" />
+  <input name="password" type="password" [(ngModel)]="password" placeholder="Password" class="register-input" />
+  <button type="submit" class="register-button">Register</button>
 </form>
 
 

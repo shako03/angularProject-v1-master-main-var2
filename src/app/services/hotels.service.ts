@@ -53,5 +53,11 @@ export class HotelsService {
     return this.APPI.PostRegistration('https://reqres.in/api/register', user);
   }
 
+  LoginUser(user: PostedUser) {
+    return this.APPI.PostRegistration('https://reqres.in/api/login', user);
+  }
+
+  
+
 }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HotelsService } from '../services/hotels.service';
 import { FormsModule, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class RegisterComponent {
 
-  constructor(private http: HotelsService) { }
+  constructor(private http: HotelsService,private router : Router) { }
 
   email: string = "";
   password: string = "";
@@ -25,7 +26,7 @@ export class RegisterComponent {
       }
 
       this.http.PostUser(user).subscribe((resp: any) => {
-        console.log(resp)
+        this.router.navigate(['/login'])
       });
     }
   }
