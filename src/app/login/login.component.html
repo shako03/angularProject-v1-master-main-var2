@@ -1,21 +1,22 @@
-
-
-<h2 *ngIf="throwFromOtherRoute">For this action you need to log in</h2>
-
-
-
-
+<h2 *ngIf="throwFromOtherRoute"></h2>
+ 
+ 
+ 
+ 
 <form #userForm="ngForm" (ngSubmit)="register(userForm)" class="login-form">
       <h2 class="form-title">Welcome Back</h2>
-
+     
+      <input name="phoneNumber" type="text" [(ngModel)]="phoneNumber" placeholder="Phone Number" class="login-input" required />
+ 
+ 
       <input name="password" type="password" [(ngModel)]="password" placeholder="Password" class="login-input"
             required />
-
+ 
       <input name="email" type="email" [(ngModel)]="email" placeholder="Email" class="login-input" required />
-
-
-
-
+ 
+ 
+ 
+ 
       <button type="submit" class="login-button">Login</button>
       <p routerLink="/register">Don't have an account? Create one.
             <button (click)="noAccount()">Register</button>

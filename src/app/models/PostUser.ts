@@ -1,5 +1,5 @@
 export class PostedUser {
-  phoneNumber?: number
+  phoneNumber?: string 
   password!: string
   email!: string
   firstName!: string

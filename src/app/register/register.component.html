@@ -1,20 +1,19 @@
 <form #userForm="ngForm" (ngSubmit)="register(userForm)" class="register-form">
   <h2 class="form-title">Create Your Account</h2>
+  <input name="phoneNumber" type="text" [(ngModel)]="phoneNumber" placeholder="Phone Number" class="login-input" required />
   <input name="password" type="password" [(ngModel)]="password" placeholder="Password" class="login-input" required />
-
+ 
   <input name="email" type="email" [(ngModel)]="email" placeholder="Email" class="login-input" required />
-
+ 
   <input name="firstName" type="text" [(ngModel)]="firstName" placeholder="First Name" class="login-input" required />
-
-
+ 
+ 
   <input type="text" [(ngModel)]="lastName" placeholder="lastName" name="lastName" class="login-input" required />
-
+ 
   <input type="text" [(ngModel)]="role" placeholder="role" name="role" class="login-input">
-
+ 
   <button type="submit" class="register-button">Register</button>
 </form>
-
-
 
 
 
