@@ -23,6 +23,7 @@ export const routes: Routes = [
       {
             path: "Booked-rooms",
             loadComponent: () => import('./booked-rooms/booked-rooms.component').then(m => m.BookedRoomsComponent),
+            canActivate: [AuthGuard]
             
       },
       {
@@ -31,7 +32,8 @@ export const routes: Routes = [
       },
       {
             path: "details/:id",
-            loadComponent: () => import('./details/details.component').then(m => m.DetailsComponent)
+            loadComponent: () => import('./details/details.component').then(m => m.DetailsComponent),
+            
       },
       {
             path: "login",

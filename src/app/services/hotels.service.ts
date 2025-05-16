@@ -50,11 +50,11 @@ export class HotelsService {
   }
 
   PostUser(user: PostedUser) {
-    return this.APPI.PostRegistration('https://reqres.in/api/register', user);
+    return this.APPI.PostRegistration('https://rentcar.stepprojects.ge/api/Users/register', user);
   }
 
   LoginUser(user: PostedUser) {
-    return this.APPI.PostRegistration('https://reqres.in/api/login', user);
+    return this.APPI.PostRegistration('https://rentcar.stepprojects.ge/api/Users/login', user);
   }
 
   

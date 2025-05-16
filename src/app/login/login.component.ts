@@ -18,34 +18,49 @@ export class LoginComponent {
 
   }
   ngOnInit(){
-    if(this.authService.getIsRejected()=="rejected"){
-      console.log("rejected!")
-      this.throwFromOtherRoute = false
+   if(this.authService.getIsRejected()=="reject"){
+    
+      this.throwFromOtherRoute = true
 
-    }
+   }
   }
 
-  throwFromOtherRoute = true
+  throwFromOtherRoute = false
   
 
   email: string = "";
   password: string = "";
+  firstName: string = "";
+  lastName: string = "";
+  role: string = "user";
 
-  login(form: NgForm) {
-    if (form.valid) {
+ register(form : NgForm){
+        if(form.valid){
 
-      let user = {
-        email: this.email,
-        password: this.password
-      }
+          let user = {
+            password: this.password,
+            email: this.email,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            role: this.role
+          }
 
-      this.http.LoginUser(user).subscribe((resp: any) => {
-        console.log(resp)
-        this.local.setLocalStr("token", resp.token)
-        this.router.navigate(['/Home'])
-      });
+
+
+          this.http.LoginUser(user).subscribe((resp:any)=>{
+              console.log(resp)
+              this.local.setLocalStr("token", resp.token)
+               this.router.navigateByUrl("/Home")
+          })
+
+          
+
+
+
+
+        }
     }
-  }
+
   noAccount(){
     this.router.navigate(['/register'])
   }

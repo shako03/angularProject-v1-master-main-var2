@@ -1,4 +1,8 @@
 export class PostedUser {
-      email!: string;
-      password!: string;
+  phoneNumber?: number
+  password!: string
+  email!: string
+  firstName!: string
+  lastName!: string
+  role!: string
 }

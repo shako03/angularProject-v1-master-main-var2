@@ -11,15 +11,16 @@ import { AuthService } from './auth.service'; // Ensure AuthService is imported
 export class AuthGuard {
   constructor(private authService: AuthService, private route:Router) { }
 
-  canActivate() {
-    if (this.authService.isLoggedIn()) {
-      return true;
+  canActivate(){
+    if(this.authService.isLogedIn()){
+      return true
     }
-
     this.authService.reject()
-
-    this.route.navigateByUrl('/login');
-    return false;
+    this.route.navigateByUrl('/login')
+    return false
   }
 
 };
+
+
+

@@ -6,33 +6,34 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AuthService {
 
-  constructor(private cookieservice: CookieService) { }
+  constructor(private cookieService : CookieService) { }
 
-  isAutorised = false;
+  isAuthorized = false
 
-  login() {
-    this.isAutorised = true;
-    this.cookieservice.set('isAuth' , "1", 1);
-    // this.cookieservice.set("token", "token") //როცა თოქენი გვექნება 
+  login(){
+    this.isAuthorized = true
+    this.cookieService.set("isUath", "success", 1)
+   // this.cookieService.set("token", "token", 1) // როცა თოქეი მოგვივა ლოგინზე
   }
-reject(){
-  this.cookieservice.set("isAuth","rejected",1)
-}
-  logOut() {
-    this.isAutorised = false;
-    this.cookieservice.delete('isAuth');
-    this.cookieservice.deleteAll('isAuth');
+  reject(){
+    this.cookieService.set("isUath", "reject", 1)
+  }
+  logOut(){
+    this.isAuthorized = false
+    this.cookieService.delete("isUath")
+    this.cookieService.deleteAll()
   }
 
-  isLoggedIn() {
-    return this.isAutorised;    
+  isLogedIn() {
+    return this.isAuthorized
   }
 
   isRejected(){
-    return this.cookieservice.check("isAuth")
+    return this.cookieService.check("isUath")
   }
 
   getIsRejected(){
-    return this.cookieservice.get("isAuth")
+    return this.cookieService.get("isUath")
   }
+
 }

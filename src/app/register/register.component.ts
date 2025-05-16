@@ -16,20 +16,33 @@ export class RegisterComponent {
 
   email: string = "";
   password: string = "";
+  firstName: string = "";
+  lastName: string = "";
+  role: string = "user";
 
-  register(form: NgForm) {
-    if (form.valid) {
 
-      let user = {
-        email: this.email,
-        password: this.password
-      }
+  register(form : NgForm){
+       
+        if(form.valid){
 
-      this.http.PostUser(user).subscribe((resp: any) => {
-        this.router.navigate(['/login'])
-      });
+          let user = {
+            password: this.password,
+            email: this.email,
+            firstName: this.firstName,
+            lastName: this.lastName,
+            role: this.role
+          }
+
+
+          this.http.PostUser(user).subscribe((resp:any)=>{
+              this.router.navigateByUrl("/login")
+          })
+
+
+
+
+        }
     }
-  }
 }
 
   
